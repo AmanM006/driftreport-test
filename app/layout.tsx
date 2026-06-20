@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   var v,w,x,y,z;
                   o=p[d]=p[d]||{};
                   o._q=o._q||[];
-                  v=['initialize','identify','updateOptions','pageLoad','track'];
+                  v=['initialize','identify','updateOptions','pageLoad','track','trackAgent'];
                   for(w=0,x=v.length;w<x;++w)(function(m) {
                     o[m]=o[m]||function() { o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0))); };
                   })(v[w]);
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   visitor: { id: 'anon_visitor' },
                   account:  { id: 'acme_corp'    }
                 });
-              })('YOUR_PENDO_API_KEY');
+              })('bfe0374d-13bd-44fa-a814-4f436b5fcbb2');
             `,
           }}
         />
