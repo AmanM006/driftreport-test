@@ -1,12 +1,19 @@
-// Team Members page — completely untracked
+'use client';
+
 export default function TeamPage() {
   function handleInvite() {
-    // TODO: add pendo tracking
+    // @ts-ignore
+    window.pendo?.track('team_member_invited', {
+      inviteeRole: 'member',
+    });
     console.log('invite sent');
   }
 
   function handleRemoveMember(id: string) {
-    // TODO: add pendo tracking
+    // @ts-ignore
+    window.pendo?.track('team_member_removed', {
+      memberId: id,
+    });
     console.log('removing member', id);
   }
 
