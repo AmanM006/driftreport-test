@@ -8,7 +8,6 @@ export default function CheckoutPage() {
       plan: 'pro_annual',
       price: 299,
       currency: 'USD',
-      visitorId: 'user_abc',
     });
   }
 

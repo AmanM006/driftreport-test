@@ -1,23 +1,38 @@
 'use client';
 import { useEffect } from 'react';
 
-// Notifications preferences — partial: viewed tracked, toggle events missing
 export default function NotificationsPage() {
   useEffect(() => {
     // @ts-ignore
-    window.pendo?.track('notifications_preferences_viewed', {
-      visitorId: 'user_abc',
-    });
+    window.pendo?.track('notifications_preferences_viewed', {});
   }, []);
+
+  function handlePreferenceChange(preferenceType: string, enabled: boolean, channel: string) {
+    // @ts-ignore
+    window.pendo?.track('notification_preferences_updated', {
+      preferenceType,
+      enabled,
+      channel,
+    });
+  }
 
   return (
     <main>
       <h1>Notification Preferences</h1>
       <label>
-        <input type="checkbox" defaultChecked /> Email digest
+        <input
+          type="checkbox"
+          defaultChecked
+          onChange={(e) => handlePreferenceChange('email_digest', e.target.checked, 'email')}
+        />{' '}
+        Email digest
       </label>
       <label>
-        <input type="checkbox" /> Slack alerts
+        <input
+          type="checkbox"
+          onChange={(e) => handlePreferenceChange('slack_alerts', e.target.checked, 'slack')}
+        />{' '}
+        Slack alerts
       </label>
     </main>
   );

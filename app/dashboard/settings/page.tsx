@@ -1,7 +1,11 @@
-// Dashboard Settings — NO Pendo instrumentation (telemetry gap / untracked)
+'use client';
+
 export default function SettingsPage() {
   function handleSave() {
-    // TODO: add pendo tracking here
+    // @ts-ignore
+    window.pendo?.track('dashboard_settings_saved', {
+      settingsChanged: true,
+    });
     console.log('Settings saved');
   }
 

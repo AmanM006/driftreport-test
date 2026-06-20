@@ -6,7 +6,6 @@ export default function AnalyticsPage() {
   useEffect(() => {
     // @ts-ignore
     window.pendo?.track('analytics_viewed', {
-      visitorId: 'user_abc',
       workspaceId: 'ws_123',
       plan: 'pro',
       dateRange: '30d',
@@ -17,6 +16,8 @@ export default function AnalyticsPage() {
     // @ts-ignore
     window.pendo?.track('analytics_export_clicked', {
       format: 'csv',
+      dateRange: '30d',
+      workspaceId: 'ws_123',
     });
   }
 
